@@ -11,6 +11,6 @@ const pool = new pg.Pool({
 
 conn.sync({ force: true }).then(() => {
   server.listen(PORT, () => {
-    console.log('%s listening at', PORT); 
+    console.log('Conectado !', PORT); 
   });
 });

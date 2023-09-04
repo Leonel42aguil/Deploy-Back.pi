@@ -4,24 +4,35 @@ const fs = require('fs');
 const path = require('path');
 require('dotenv').config()
 const {   
-  DB_USER, DB_PASSWORD, DB_HOST,DB_NAME, DB_DEPLOY
+  DB_USER, DB_PASSWORD, DB_HOST,DB_NAME, DB_DEPLOY, DB_PORT, BDD
 } = process.env;   
  
 // const sequelize = new Sequelize(`postgres://${DB_USER}:${DB_PASSWORD}@${DB_HOST}:/${DB_NAME}`, {
 //   logging: false, 
 //   dialect: 'postgres', 
 // }); 
- 
-const sequelize = new Sequelize(DB_DEPLOY, {
-  logging: false, 
-  dialect: 'postgres',
-  native: false,
-  dialectOptions: { 
+
+const sequelize = new Sequelize(`postgres://${DB_USER}:${DB_PASSWORD}@${DB_HOST}:${DB_PORT}/${BDD}`, {
+  dialectOptions: {
     ssl: {
-      require: false
-    }
-  }
-});
+     require: true,
+     rejectUnauthorized: false
+    },
+  },
+  logging: false, 
+  native: false, 
+}); 
+ 
+// const sequelize = new Sequelize(DB_DEPLOY, {
+//   logging: false, 
+//   dialect: 'postgres',
+//   native: false,
+//   dialectOptions: { 
+//     ssl: {
+//       require: false
+//     }
+//   }
+// });
 
 const basename = path.basename(__filename);
 
