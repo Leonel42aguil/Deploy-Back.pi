@@ -63,7 +63,6 @@ const getApiInfo = async () => {
     return infoTotal;
   };
 
-
   //    ✅✅✅ GET DE TODOS LOS TEMPERAMENTS ✅✅✅
 
   router.get("/temperaments", async (req, res) => {
