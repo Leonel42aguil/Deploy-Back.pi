@@ -8,6 +8,7 @@ const axios = require('axios');
 //🟢OBTENER TODOS LOS TEMPERAMENTOS DE DISTINTAS RAZAS🟢
  const getTemperament = async () => {
     const apiT = await axios.get(`https://api.thedogapi.com/v1/breeds?api_key=${API_KEY}`)
+    // const apiT = await axios.get(`https://servidor-back-pi.onrender.com`)
     const getBehavior = await apiT.data.map(e => e.temperament)
     
     const string = getBehavior.toString().split(',')
@@ -19,11 +20,13 @@ const axios = require('axios');
     }); 
     const foud = await Temperament.findAll()
      return foud
-  }  
- 
-//🟢DONDE ME TRAITO TODO DE LA API🟢
-const getApiInfo = async () => {
-    const apiUrl = await axios.get(`https://api.thedogapi.com/v1/breeds?api_key=${API_KEY}`);
+    }  
+    
+    //🟢DONDE ME TRAITO TODO DE LA API🟢
+    const getApiInfo = async () => {
+      const apiUrl = await axios.get(`https://api.thedogapi.com/v1/breeds?api_key=${API_KEY}`);
+      // const apiUrl = await axios.get(`https://servidor-back-pi.onrender.com`);
+      console.log('----->', apiT);
     
     const apiInfo = await apiUrl.data.map((e) => {
       return {
