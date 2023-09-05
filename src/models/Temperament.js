@@ -14,3 +14,4 @@ module.exports = (sequelize) => {
     } 
   }, {timestamps: false}) 
 }
+// https://servidor-back-pi.onrender.com
