@@ -4,10 +4,10 @@ require('dotenv').config()
 const { PORT, DB_DEPLOY } = process.env
 const pg = require('pg') 
 
-const pool = new pg.Pool({
-  connectionString : DB_DEPLOY,
-  ssl: true
-})
+// const pool = new pg.Pool({
+//   connectionString : DB_DEPLOY,
+//   ssl: true
+// })
 
 conn.sync({ force: true }).then(() => {
   server.listen(PORT, () => {
